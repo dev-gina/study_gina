@@ -1,0 +1,220 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+  padding-bottom: 100px;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+}
+
+#frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+ }
+
+#frame > .menu-wrap{
+  display: flex;
+  align-items: center;
+  width: 1440px;
+  margin: 28px 0;
+  gap: 72px;
+  padding-left: 28px;
+}
+
+#frame > .menu-wrap > span {
+font-weight: bold;
+font-size: 20px;
+margin-top: 4px;
+}
+
+#frame > .division-line {
+  border: solid 0.1px #828282;
+  width: 1440px;
+}
+ 
+.title {
+  margin: 42px 0 35px 0;
+  display: flex;
+  justify-content: space-between;
+  width: 1191px;
+}
+
+ h1 {
+  font-size: 40px;
+  font-weight: bold;
+ }
+
+.container {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ background-color: #ffffff;
+ justify-content: center;
+ margin: 0 auto;
+}
+
+.coupon-form {
+ display: flex;
+ align-items: center; 
+}
+
+.box1 {
+ margin-top: 20px;
+}
+
+.label {
+ display: flex;
+ align-items: center;
+ width: 230px;
+ text-align: left;
+ font-weight: bold;
+}
+
+input[type="text"], select, textarea {
+ width: 464px; 
+ height: 55px; 
+ padding: 10px;
+ border: 1px solid #ccc;
+ border-radius: 20px;
+ margin-top: 15px;
+}
+
+textarea {
+ height: 80px; 
+ 
+}
+
+.button-group {
+ width: 100%;
+ display: flex;
+ justify-content: flex-end; 
+ justify-content: center; 
+ margin-top: 100px;
+}
+
+.button-submit, .button-edit {
+ width: 90px;
+ height: 30px;
+ border: none;
+ border-radius: 20px;
+ color: white;
+ cursor: pointer;
+ display: flex; 
+ align-items: center; 
+ justify-content: center; 
+ margin-top: 6px; 
+}
+
+.button-submit {
+ background-color: #113F8A; 
+ margin-right: 10px; 
+}
+
+.button-edit {
+ background-color: #FFC303; 
+}
+
+.form-group {
+ margin-bottom: 20px;
+}
+
+.box1 {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ margin-bottom: 20px;
+}
+
+.box1 label {
+ display: flex;
+ align-items: center;
+ width: 230px;
+ font-weight: bold;
+ align-items: flex-start; 
+}
+
+.box1 input[type="text"] {
+ width: 464px;
+ height: 55px;
+ padding: 10px;
+ border: 1px solid #ccc;
+ border-radius: 20px;
+ margin-top: 15px;
+}
+
+textarea {
+ width: 464px;
+ height: 80px;
+ padding: 10px;
+ border: 1px solid #ccc;
+ border-radius: 10px;
+ margin-top: 15px;
+ font-family: 'Spoqa Han Sans Neo', sans-serif !important;
+}
+
+.discount-type {
+ display: flex;
+ align-items: flex-start; /* 상단에 맞추기 위해 flex-start 사용 */
+ margin-top: 30px;
+}
+
+.discount-type label {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ margin-top: 5px;
+}
+
+.discount-type .box2 label {
+ display: flex;
+ align-items: center;
+}
+
+
+.custom-discount {
+ width: 90px;
+ height: 30px;
+ border: 1px solid #ccc;
+ padding: 5px;
+}
+
+.result {
+ margin-top: 20px;
+}
+
+button {
+ margin-top: 10px;
+ padding: 5px 10px;
+}
+
+.box2 {
+ display: flex;
+ flex-direction: row;
+ gap: 10px;
+}
+
+.box3 {
+ display: flex;
+ flex-direction: column;
+}
+
+button {
+ padding: 10px 20px;
+ border: none;
+ background-color: #ccc;
+ border-radius: 20px;
+ cursor: pointer;
+}
+
+button:hover {
+ background-color: #bbb;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쿠폰 관리</title>
+    <link rel="stylesheet" href="/css/couponManage.css" />
+</head>
+<body>
+    <div id="frame">
+        <div class="menu-wrap">
+            <img src="/images/octicon_three-bars-16.png" alt="메뉴" />
+            <span>쿠폰 관리</span>
+        </div>
+        <div class="division-line"></div>
+
+        <div class="title">
+            <h1>쿠폰 조회</h1>
+        </div>
+
+        <section class="notice-search">
+            <div class="search-bar">
+                <input
+                    type="text"
+                    class="search"
+                    placeholder="쿠폰명/쿠폰번호를 입력하세요"
+                />
+            </div>
+            <div class="buttons">
+                <button class="search-btn">검색</button>
+                <button class="reset-btn">초기화</button>
+                <button class="new-add-btn">신규 추가</button>
+            </div>
+        </section>
+
+        <section class="notice-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>쿠폰명</th>
+                        <th>시작일</th>
+                        <th>종료일</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td>쿠폰이벤트 기획전 - 2</td>
+                        <td>2024-09-21</td>
+                        <td>2024-11-15</td>
+                        <td>
+                            <div class="change-buttons">
+                                <button class="edit-btn">수정</button>
+                                <button class="delete-btn">삭제</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>쿠폰이벤트 기획전 - 1</td>
+                        <td>2024-09-21</td>
+                        <td>2024-11-15</td>
+                        <td>
+                          <div class="change-buttons">
+                            <button class="edit-btn">수정</button>
+                            <button class="delete-btn">삭제</button>
+                          </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script>
+        // DOM 요소 선택
+        const searchInput = document.querySelector(".search");
+        const searchButton = document.querySelector(".search-btn");
+        const resetButton = document.querySelector(".reset-btn");
+        const tableBody = document.querySelector(".notice-list tbody");
+        const addCouponButton = document.querySelector(".new-add-btn");
+
+        // 샘플 데이터
+        const coupons = [
+            {
+                no: 1,
+                name: "쿠폰이벤트 기획전 - 1",
+                startDate: "2024-10-21",
+                endDate: "2024-11-15",
+            },
+            {
+                no: 2,
+                name: "쿠폰이벤트 기획전 - 2",
+                startDate: "2024-10-21",
+                endDate: "2024-11-15",
+            },
+        ];
+
+        // 쿠폰목록 함수
+        function filterCoupons() {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+
+            const filteredCoupons = coupons.filter((coupon) =>
+                coupon.name.toLowerCase().includes(searchTerm)
+            );
+
+            displayCoupons(filteredCoupons);
+        }
+
+        // 쿠폰목록 함수 > 테이블 표시
+        function displayCoupons(filteredCoupons) {
+            tableBody.innerHTML = ""; // 테이블 비우기
+            filteredCoupons.forEach((coupon) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${coupon.no}</td>
+                    <td>${coupon.name}</td>
+                    <td>${coupon.startDate}</td>
+                    <td>${coupon.endDate}</td>
+                    <td>
+                        <button class="edit-btn" data-no="${coupon.no}">수정</button>
+                        <button class="delete-btn">삭제</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // 초기화 버튼
+        resetButton.addEventListener("click", () => {
+            searchInput.value = "";
+            displayCoupons(coupons); // 모든 쿠폰 목록 다시 표시
+        });
+
+        // 검색 버튼
+        searchButton.addEventListener("click", filterCoupons);
+
+        // 수정 및 삭제 버튼
+        tableBody.addEventListener("click", (event) => {
+            if (event.target.classList.contains("edit-btn")) {
+                const couponNo = event.target.dataset.no;
+                window.location.href = `/editCoupon.html?no=${couponNo}`;
+            }
+
+            if (event.target.classList.contains("delete-btn")) {
+                const confirmation = confirm("삭제하시겠습니까?");
+                if (confirmation) {
+                    alert("삭제되었습니다.");
+                }
+            }
+        });
+
+        // 신규등록 버튼 클릭 시 등록 페이지로 이동
+        addCouponButton.addEventListener("click", () => {
+            window.location.href = "/addCoupon.html";
+        });
+
+        // 초기 데이터 표시
+        displayCoupons(coupons);
+    </script>
+</body>
+</html>

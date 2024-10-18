@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배너 수정</title>
+    <link rel="stylesheet" href="/css/adjBanner.css" />
+  </head>
+  <body>
+    <div id="frame">
+      <div class="menu-wrap">
+        <img src="/images/octicon_three-bars-16.png" alt="메뉴" />
+        <span>배너 관리</span>
+      </div>
+      <div class="division-line"></div>
+
+      <div class="title">
+        <h1>배너 수정</h1>
+      </div>
+
+      <div id="container">
+        <form id="banner-form">
+          <!-- 배너명 -->
+          <div class="form-row">
+            <label for="banner-name">배너명</label>
+            <input
+              type="text"
+              id="banner-name"
+              name="banner-name"
+              placeholder="제목을 입력해주세요. (20자 이내)"
+              required
+            />
+          </div>
+
+          <!-- 배너 타입 -->
+          <div class="form-row">
+            <label for="banner-type">배너 타입</label>
+            <select id="banner-type" name="banner-type">
+              <option value="image">이미지</option>
+              <option value="text">텍스트</option>
+              <option value="video">비디오</option>
+            </select>
+          </div>
+
+          <!-- 배너 링크 -->
+          <div class="form-row">
+            <label for="banner-link">배너 링크</label>
+            <input
+              type="url"
+              id="banner-link"
+              name="banner-link"
+              placeholder="배너 클릭 시 이동할 URL"
+            />
+          </div>
+
+          <!-- 배너 이미지 -->
+          <div class="form-row">
+            <label for="banner-image">배너 이미지</label>
+            <div class="file-upload-group">
+              <input
+                type="file"
+                id="banner-image"
+                name="banner-image"
+                accept=".jpg, .png, .gif"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- 기간 -->
+          <div class="form-row">
+            <label for="unlimited">기간</label>
+            <div class="input-group">
+              <input type="radio" id="unlimited" name="duration" value="unlimited" />
+              <label for="unlimited">무제한</label>
+              <input type="date" id="start-date" name="start-date" />
+              <span>~</span>
+              <input type="date" id="end-date" name="end-date" />
+            </div>
+          </div>
+
+          <!-- 사용 여부 -->
+          <div class="form-row">
+            <label>사용 여부</label>
+            <div class="radio-group">
+              <input type="radio" id="use" name="use-status" value="use" required />
+              <label for="use">사용함</label>
+              <input type="radio" id="no-use" name="use-status" value="no-use" />
+              <label for="no-use">사용 안함</label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="change-buttons">
+        <button class="button-submit">등록</button>
+        <button class="button-edit">취소</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const bannerForm = document.getElementById("banner-form");
+        const submitButton = document.querySelector(".button-submit");
+        const cancelButton = document.querySelector(".button-edit");
+        const unlimitedCheckbox = document.getElementById("unlimited");
+        const startDateInput = document.getElementById("start-date");
+        const endDateInput = document.getElementById("end-date");
+        const bannerNameInput = document.getElementById("banner-name");
+    
+        // 무제한 체크박스
+        unlimitedCheckbox.addEventListener("change", () => {
+          const isChecked = unlimitedCheckbox.checked;
+          startDateInput.disabled = isChecked;
+          endDateInput.disabled = isChecked;
+        });
+    
+        // 배너명 입력 길이 제한 (20자 이내로)
+        bannerNameInput.addEventListener("input", () => {
+          if (bannerNameInput.value.length > 20) {
+            alert("배너명은 20자 이내로 입력해 주세요.");
+            bannerNameInput.value = bannerNameInput.value.slice(0, 20);
+          }
+        });
+    
+        // 등록 버튼 클릭 시
+        submitButton.addEventListener("click", (event) => {
+          event.preventDefault();
+    
+          // 입력 검증
+          const bannerName = bannerNameInput.value.trim();
+          if (!bannerName) {
+            alert("배너명을 입력해 주세요.");
+            return;
+          }
+    
+          const startDate = startDateInput.value;
+          const endDate = endDateInput.value;
+    
+          // 날짜 검증 (무제한x)
+          if (!unlimitedCheckbox.checked) {
+            if (!startDate || !endDate) {
+              alert("기간을 설정해 주세요.");
+              return;
+            }
+    
+            // 시작 날짜와 종료 날짜가 바뀌었을떄
+            const startDateObj = new Date(startDate);
+            const endDateObj = new Date(endDate);
+    
+            if (startDateObj > endDateObj) {
+              alert("종료 날짜는 시작 날짜보다 빠를 수 없습니다.");
+              return;
+            }
+          }
+    
+          // 등록 완료
+          alert("배너가 수정되었습니다.");
+    
+          // 폼 초기화
+          bannerForm.reset();
+        });
+    
+        // 취소 버튼 클릭 시
+        cancelButton.addEventListener("click", (event) => {
+          event.preventDefault();
+          bannerForm.reset(); // 폼 초기화
+          alert("배너 등록이 취소되었습니다.");
+        });
+      });
+    </script>
+  </body>
+</html>

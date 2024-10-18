@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/spoqa-han-sans@latest/css/SpoqaHanSansNeo.css" rel="stylesheet" />
+    <title>관리자어드민 로그인</title>
+    <style>
+      /* 전체 컨테이너 스타일 */
+      #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: "Spoqa Han Sans Neo", sans-serif;
+      }
+
+      /* 이미지 스타일 */
+      .image {
+        margin-bottom: 60px;
+      }
+
+      /* 관리자 텍스트 스타일 */
+      #admin {
+        width: 464px;
+        height: 50px;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        background-color: #888888;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        border: none;
+      }
+
+      /* 아이디, 비밀번호 입력 칸 스타일 */
+      input {
+        box-sizing: border-box;
+        width: 464px;
+        height: 60px;
+        border: 0.5px solid #888888;
+        font-size: 14px;
+        color: #828282;
+        margin-bottom: 5px;
+        padding: 0 15px;
+        border-radius: 20px;
+      }
+
+      /* 로그인 버튼 스타일 */
+      button {
+        width: 464px;
+        height: 60px;
+        background-color: #ffc303;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        margin-top: 15px;
+        padding: 0 15px;
+        border-radius: 20px;
+        cursor: pointer; /* 클릭 가능한 커서 */
+      }
+
+      p {
+        margin-top: 10px;
+        color: #828282;
+        font-size: 14px;
+      }
+
+      .links {
+        color: #828282;
+        font-size: 14px;
+        margin-top: 184px;
+      }
+
+      .links a {
+        color: #828282;
+        text-decoration: none;
+        margin: 0 5px;
+      }
+
+      .links a:hover {
+        text-decoration: underline; /* 마우스 오버 시 언더라인 추가 */
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="container">
+      <img class="image" src="/images/PowPow.png" alt="powpow로고" />
+      <div id="admin">관리자</div>
+
+      <input type="text" name="id" placeholder="관리자 계정을 입력해주세요." />
+      <input type="password" name="password" placeholder="비밀번호를 입력해주세요." />
+
+      <button type="button">로그인</button>
+      <p>Or continue with</p>
+      <p class="links">
+        <a href="#">이용약관</a> | 
+        <a href="#">개인정보처리방침</a> |
+        <a href="#">책임의 한계와 법적고지</a> |
+        <a href="#">회원정보 고객센터</a>
+      </p>
+    </div>
+
+
+    
+    <script>
+      // 로그인 버튼 클릭 시 호출되는 함수
+      function handleLogin() {
+        const adminId = document.querySelector('input[name="id"]').value;
+        const password = document.querySelector('input[name="password"]').value;
+    
+        // 간단한 입력값 검증
+        if (!adminId) {
+          alert("아이디를 입력해주세요.");
+          return;
+        }
+        
+        if (!password) {
+          alert("비밀번호를 입력해주세요.");
+          return;
+        }
+    
+        // 로그인 로직 (예: API 호출)
+        console.log("로그인 시도:", { adminId, password });
+    
+        // 여기에 실제 로그인 API 호출 코드 작성 가능
+        // 예를 들어:
+        // fetch('/api/login', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify({ adminId, password }),
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        //   if (data.success) {
+        //     // 로그인 성공 시 리다이렉션
+        //     window.location.href = '/dashboard';
+        //   } else {
+        //     alert(data.message || '로그인 실패');
+        //   }
+        // })
+        // .catch(error => {
+        //   console.error('Error:', error);
+        // });
+      }
+    
+      // 로그인 버튼에 클릭 이벤트 리스너 추가
+      document.addEventListener('DOMContentLoaded', function () {
+        const loginButton = document.querySelector('button[type="button"]');
+        loginButton.addEventListener('click', handleLogin);
+      });
+    </script>
+
+
+  </body>
+</html>

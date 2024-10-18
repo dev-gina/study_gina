@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+  padding-bottom: 100px;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+}
+
+#frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+ }
+
+#frame > .menu-wrap{
+  display: flex;
+  align-items: center;
+  width: 1440px;
+  margin: 28px 0;
+  gap: 72px;
+  padding-left: 28px;
+}
+
+#frame > .menu-wrap > span {
+font-weight: bold;
+font-size: 20px;
+margin-top: 4px;
+}
+
+#frame > .division-line {
+  border: solid 0.1px #828282;
+  width: 1440px;
+}
+ 
+.title {
+  margin: 42px 0 35px 0;
+  display: flex;
+  justify-content: space-between;
+  width: 1191px;
+}
+
+ h1 {
+  font-size: 40px;
+  font-weight: bold;
+ }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+label {
+  width: 180px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+input[type="text"],
+input[type="url"], 
+select {
+  width: 707px;
+  height: 60px;
+  padding: 0 17px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background: none;
+}
+
+input[type="date"] {
+  width: 180px;
+  height: 55px;
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  gap: 10;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.file-upload-group {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 중앙 정렬 */
+  gap: 20px; /* 필요 시 간격 조절 */
+}
+
+input[type="file"] {
+  width: 707px; /* 원하는 너비 설정 */
+  height: 60px; /* 원하는 높이 설정 */
+  padding: 17px 17px 30px 17px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background: none;
+}s
+
+
+input[type="radio"] {
+  width: 20px; /* 원형 크기 */
+  height: 20px; /* 원형 크기 */
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #bbb;
+}
+
+.change-buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.button-submit,
+.button-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 30px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.button-submit {
+  background-color: #113F8A;
+  margin-right: 10px;
+}
+
+.button-edit {
+  background-color: #FFC303;
+}

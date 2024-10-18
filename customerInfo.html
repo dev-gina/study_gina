@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원 관리(일반회원)</title>
+    <link rel="stylesheet" href="/css/customerInfo.css" />
+  </head>
+  <body>
+    <div id="frame">
+      <div class="menu-wrap">
+        <img src="/images/octicon_three-bars-16.png" alt="메뉴" />
+        <span>회원 관리</span>
+      </div>
+      <div class="division-line"></div>
+
+      <div class="title">
+        <h1>일반회원 정보조회</h1>
+      </div>
+
+      <div class="container">
+        <div class="notice-search">
+          <div class="search-row">
+            <div class="search-bar">
+              <label for="search">검색</label>
+              <input
+                type="text"
+                class="search"
+                placeholder="검색어를 입력해주세요"
+                id="search-input"
+              />
+            </div>
+            <div class="sms-receive">
+              <label>SMS 수신여부</label>
+              <input type="radio" id="sms-yes" name="sms" value="yes" /> 수신
+              <input type="radio" id="sms-no" name="sms" value="no" />
+              수신거부
+            </div>
+          </div>
+          <div class="search-row">
+            <div class="search-period">
+              <label for="start-date">기간</label>
+              <input type="date" id="start-date" /> ~
+              <input type="date" id="end-date" />
+            </div>
+            <div class="email-receive">
+              <label>메일 수신여부</label>
+              <input type="radio" id="email-yes" name="email" value="yes" />
+              수신
+              <input type="radio" id="email-no" name="email" value="no" />
+              수신거부
+            </div>
+          </div>
+          <div class="buttons">
+            <button class="search-btn" id="search-btn">검색</button>
+            <button class="reset-btn" id="reset-btn">초기화</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="notice-list">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>아이디</th>
+              <th>휴대폰</th>
+              <th>이메일</th>
+              <th>SMS 수신여부</th>
+              <th>메일 수신여부</th>
+            </tr>
+          </thead>
+          <tbody id="user-list">
+            <tr>
+              <td>2</td>
+              <td>dlfksdj13</td>
+              <td>010-2400-0000</td>
+              <td>dkwjT@naver.com</td>
+              <td>수신</td>
+              <td>수신거부</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>dlwlsdk0102</td>
+              <td>010-2400-1111</td>
+              <td>dlwlsdk0102@naver.com</td>
+              <td>수신거부</td>
+              <td>수신</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // 검색 버튼 클릭 시
+        const search = document.getElementById('search-btn');
+        const searchInput = document.getElementById('search-input');
+        const userList = document.getElementById('user-list');
+
+        search.addEventListener('click', function () {
+          const searchValue = searchInput.value.trim().toLowerCase();
+          const smsFilter = document.querySelector('input[name="sms"]:checked');
+          const emailFilter = document.querySelector('input[name="email"]:checked');
+
+          // 모든 행을 숨김
+          const rows = userList.getElementsByTagName('tr');
+          for (const row of rows) {
+            const userId = row.cells[1].textContent.toLowerCase();
+            const phone = row.cells[2].textContent.toLowerCase();
+            const email = row.cells[3].textContent.toLowerCase();
+            const smsStatus = row.cells[4].textContent;
+            const emailStatus = row.cells[5].textContent;
+
+            // 검색어와 필터 적용
+            const matchesSearch = userId.includes(searchValue) || phone.includes(searchValue) || email.includes(searchValue);
+            const matchesSms = smsFilter ? smsStatus === (smsFilter.value === 'yes' ? '수신' : '수신거부') : true;
+            const matchesEmail = emailFilter ? emailStatus === (emailFilter.value === 'yes' ? '수신' : '수신거부') : true;
+
+            // 모든 조건이 맞아야 행 표시
+            if (matchesSearch && matchesSms && matchesEmail) {
+              row.style.display = '';
+            } else {
+              row.style.display = 'none';
+            }
+          }
+        });
+
+        // 초기화 버튼 클릭 시
+        const reset = document.getElementById('reset-btn');
+
+        reset.addEventListener('click', function () {
+          searchInput.value = '';
+
+        const radios = document.querySelectorAll('input[type="radio"]');
+          radios.forEach(radio => radio.checked = false); 
+          document.getElementById('start-date').value = ''; 
+          document.getElementById('end-date').value = ''; 
+
+          const rows = userList.getElementsByTagName('tr');
+          for (const row of rows) {
+            row.style.display = '';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

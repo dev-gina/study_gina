@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배너 조회</title>
+    <link rel="stylesheet" href="/css/bannerManage.css" />
+</head>
+<body>
+    <div id="frame">
+        <div class="menu-wrap">
+            <img src="/images/octicon_three-bars-16.png" alt="메뉴" />
+            <span>배너 관리</span>
+        </div>
+        <div class="division-line"></div>
+
+        <div class="title">
+            <h1>배너 조회</h1>
+        </div>
+        
+        <section class="notice-search">
+            <div class="search-bar">
+                <input
+                    type="text"
+                    class="search"
+                    placeholder="검색어를 입력해주세요."
+                />
+            </div>
+            <div class="buttons">
+                <button class="search-btn">검색</button>
+                <button class="reset-btn">초기화</button>
+                <button class="new-add-btn">신규 추가</button>
+            </div>
+        </section>
+
+        <section class="notice-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>등록 및 종료일자</th>
+                        <th>배너명</th>
+                        <th>사용</th>
+                        <th>미리보기</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td>2024-09-23 00:00:00 ~ 2024-10-07 12:00:00</td>
+                        <td>메인 띠배너</td>
+                        <td>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="toggle1" />
+                                <label for="toggle1"></label>
+                            </div>
+                        </td>
+                        <td>이미지 (400*60)</td>
+                        <td>
+                            <div class="change-buttons">
+                                <button class="edit-btn">수정</button>
+                                <button class="delete-btn">삭제</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2024-09-23 00:00:00 ~ 2024-10-07 12:00:00</td>
+                        <td>메인 띠배너</td>
+                        <td>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="toggle2" />
+                                <label for="toggle2"></label>
+                            </div>
+                        </td>
+                        <td>이미지 (400*60)</td>
+                        <td>
+                            <div class="change-buttons">
+                                <button class="edit-btn">수정</button>
+                                <button class="delete-btn">삭제</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script>
+        const searchButton = document.querySelector(".search-btn");
+        const resetButton = document.querySelector(".reset-btn");
+        const newAddButton = document.querySelector(".new-add-btn");
+        const searchInput = document.querySelector(".search");
+        const toggleSwitches = document.querySelectorAll(".toggle-switch input");
+        
+        // 검색 버튼 클릭 시
+        // searchButton.addEventListener("click", () => {
+        //     const searchValue = searchInput.value.trim();
+        //     if (!searchValue) {
+        //         alert("검색어를 입력해주세요.");
+        //         return;
+        //     }
+        // });
+    
+        // 초기화 버튼
+        resetButton.addEventListener("click", () => {
+            searchInput.value = ""; 
+        });
+        
+        // 신규 추가 버튼
+        newAddButton.addEventListener("click", () => {
+            window.location.href = 'http://127.0.0.1:5500/addBanner.html'; 
+        });
+    
+        // 토글 스위치 클릭 시
+        toggleSwitches.forEach(toggle => {
+            toggle.addEventListener("change", (event) => {
+                const status = event.target.checked ? "사용" : "사용 안 함";
+                alert(`배너의 사용 여부가 "${status}"로 변경되었습니다.`);
+            });
+        });
+    
+        // 수정 및 삭제 버튼의 이벤트 위임을 적용 (부모 요소에서 처리)
+        document.querySelector(".notice-list").addEventListener("click", (event) => {
+            if (event.target.classList.contains("edit-btn")) {
+                const index = Array.from(document.querySelectorAll(".edit-btn")).indexOf(event.target);
+                const bannerId = index + 1; // 배너 아이디 또는 고유 식별자
+                window.location.href = `http://127.0.0.1:5500/adjBanner.html`;
+            }
+            
+            if (event.target.classList.contains("delete-btn")) {
+                const index = Array.from(document.querySelectorAll(".delete-btn")).indexOf(event.target);
+                const confirmed = confirm(`배너를 삭제하시겠습니까?`);
+                if (confirmed) {
+                    alert(`배너가 삭제되었습니다.`);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

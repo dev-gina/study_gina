@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쿠폰 관리</title>
+    <link rel="stylesheet" href="/css/adjCoupon.css" />
+  </head>
+  <body>
+    <div id="frame">
+      <div class="menu-wrap">
+        <img src="/images/octicon_three-bars-16.png" alt="메뉴" />
+        <span>쿠폰 관리</span>
+      </div>
+      <div class="division-line"></div>
+
+      <div class="title">
+        <h1>쿠폰 수정</h1>
+      </div>
+
+      <div class="container">
+        <form id="coupon-form">
+          <div class="box1">
+            <label class="label" for="event-title">쿠폰 이름</label>
+            <input
+              type="text"
+              id="event-title"
+              placeholder="예) 쿠폰이벤트 기획전 -1"
+              required
+            />
+          </div>
+
+          <div class="box1">
+            <label class="label" for="coupon-code">쿠폰 코드</label>
+            <input
+              type="text"
+              id="coupon-code"
+              placeholder="쿠폰 번호 16자리를 입력해 주세요."
+              maxlength="16"
+              required
+            />
+          </div>
+
+          <div class="box1">
+            <label class="label" for="event-period"
+              >이벤트 기간 (쿠폰 유효기간)</label
+            >
+            <input
+              type="text"
+              id="event-period"
+              placeholder="2024-09-01 ~ 2024-09-24"
+              required
+            />
+          </div>
+
+          <div class="box1">
+            <label class="label" for="event-category">이벤트 카테고리</label>
+            <select id="event-category" required>
+              <option value="category1">강아지 자료/간식</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+
+          <div class="box1">
+            <label class="label" for="details">상세 내용</label>
+            <textarea
+              id="details"
+              rows="4"
+              placeholder="내용을 입력해주세요. (500자 이내)"
+              maxlength="500"
+              required
+            ></textarea>
+          </div>
+
+          <div class="box1">
+            <label class="label" for="coupon-quantity">쿠폰 수량제한</label>
+            <input
+              type="text"
+              id="coupon-quantity"
+              placeholder="예) 1000"
+              maxlength="1000"
+              required
+            />
+          </div>
+
+          <div class="discount-type">
+            <label class="label" for="coupon-quantity">쿠폰 할인율</label>
+            <div class="box3">
+              <div class="box2">
+                <label
+                  ><input type="radio" name="discount" value="10" /> 10%</label
+                >
+                <label
+                  ><input type="radio" name="discount" value="20" /> 20%</label
+                >
+                <label
+                  ><input type="radio" name="discount" value="custom" />
+                  직접입력</label
+                >
+              </div>
+              <input type="text" class="custom-discount" placeholder="예) 7%" />
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button type="button" class="button-submit" id="submit-button">
+              완료
+            </button>
+            <button type="button" class="button-edit">취소</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("submit-button").addEventListener("click", () => {
+        const eventTitle = document.getElementById("event-title").value.trim();
+        const couponCode = document.getElementById("coupon-code").value.trim();
+        const eventPeriod = document
+          .getElementById("event-period")
+          .value.trim();
+        const details = document.getElementById("details").value.trim();
+
+        // 선택된 할인율 (고정 값 혹은 직접 입력 값)
+        let discountValue;
+        const selectedDiscount = document.querySelector(
+          'input[name="discount"]:checked'
+        );
+
+        if (selectedDiscount) {
+          if (selectedDiscount.value === "custom") {
+            discountValue = document
+              .querySelector(".custom-discount")
+              .value.trim();
+          } else {
+            discountValue = selectedDiscount.value + "%";
+          }
+        } else {
+          alert("할인율을 선택해 주세요.");
+          return;
+        }
+
+        // 입력 검증
+        if (!eventTitle) {
+          alert("이벤트 제목을 입력해 주세요.");
+          return;
+        }
+
+        if (!couponCode || couponCode.length !== 16) {
+          alert("쿠폰 코드는 16자리를 입력해 주세요.");
+          return;
+        }
+
+        if (!eventPeriod) {
+          alert("이벤트 기간을 입력해 주세요.");
+          return;
+        }
+
+        if (!discountValue) {
+          alert("할인율을 입력해 주세요.");
+          return;
+        }
+
+        if (!details) {
+          alert("상세 내용을 입력해 주세요.");
+          return;
+        }
+
+        // 모든 검증이 통과된 경우
+        alert("수정이 완료되었습니다!");
+
+        // 폼 초기화
+        document.getElementById("coupon-form").reset();
+      });
+
+      document.querySelector(".button-edit").addEventListener("click", () => {
+        // 취소 버튼 클릭 시 폼 초기화
+        document.getElementById("coupon-form").reset();
+      });
+    </script>
+  </body>
+</html>

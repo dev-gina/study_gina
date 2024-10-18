@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공지사항 관리</title>
+    <link rel="stylesheet" href="/css/announcementManage.css" />
+  </head>
+  <body>
+    <div id="frame">
+      <div class="menu-wrap">
+        <img src="images/octicon_three-bars-16.png" alt="메뉴" />
+        <span>공지사항 관리</span>
+      </div>
+      <div class="division-line"></div>
+
+      <div class="title">
+        <h1>공지사항 조회</h1>
+      </div>
+
+      <section class="notice-search">
+        <div class="search-bar">
+          <input type="text" class="search" placeholder="검색어를 입력해주세요." />
+        </div>
+        <div class="buttons">
+          <button class="search-btn">검색</button>
+          <button class="reset-btn">초기화</button>
+          <button class="new-add-btn">글쓰기</button>
+        </div>
+      </section>
+
+      <section class="notice-list">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>제목</th>
+              <th>조회</th>
+              <th>등록일</th>
+              <th>작성자</th>
+              <th>관리</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2</td>
+              <td>
+                <span>9월 21일 공지사항</span>
+              </td>
+              <td>110</td>
+              <td>2024-09-21</td>
+              <td>운영자</td>
+              <td>
+                <div class="change-buttons">
+                  <button class="edit-btn">수정</button>
+                  <button class="delete-btn">삭제</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>
+                <span>9월 21일 공지사항</span>
+              </td>
+              <td>110</td>
+              <td>2024-09-21</td>
+              <td>운영자</td>
+              <td>
+                <div class="change-buttons">
+                  <button class="edit-btn">수정</button>
+                  <button class="delete-btn">삭제</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const search = document.querySelector(".search-btn");
+        const reset = document.querySelector(".reset-btn");
+        const newAdd = document.querySelector(".new-add-btn");
+        const searchInput = document.querySelector(".search");
+        const editButton = document.querySelectorAll(".edit-btn");
+        const deleteButton = document.querySelectorAll(".delete-btn");
+
+        // 검색 버튼
+        // search.addEventListener("click", function () {
+        //   const searchQuery = searchInput.
+
+        // 초기화 버튼
+        reset.addEventListener("click", function () {
+          searchInput.value = "";
+          console.log("검색어 초기화");
+        });
+
+        // 글쓰기 버튼
+        newAdd.addEventListener("click", function () {
+          window.location.href = "http://127.0.0.1:5500/announcementPost.html";
+        });
+
+        // 수정 버튼
+        editButton.forEach(function (button) {
+          button.addEventListener("click", function () {
+            window.location.href = "http://127.0.0.1:5500/anjPost.html";
+          });
+        });
+
+        // 삭제 버튼
+        deleteButton.forEach(function (button) {
+          button.addEventListener("click", function () {
+            if (confirm("정말로 삭제하시겠습니까?")) {
+              button.closest("tr").remove();
+              alert("공지사항이 삭제되었습니다.");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
