@@ -7,11 +7,13 @@ body {
   padding-bottom: 100px;
 }
 
+/* 이미지 스타일 */
 img {
   width: 40px;
   height: 40px;
 }
 
+/* 프레임 스타일 */
 #frame {
   display: flex;
   flex-direction: column;
@@ -19,7 +21,7 @@ img {
   justify-content: center;
   width: 100%;
   margin: 0 auto;
- }
+}
 
 #frame > .menu-wrap{
   display: flex;
@@ -31,16 +33,17 @@ img {
 }
 
 #frame > .menu-wrap > span {
-font-weight: bold;
-font-size: 20px;
-margin-top: 4px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 4px;
 }
 
 #frame > .division-line {
   border: solid 0.1px #828282;
   width: 1440px;
 }
- 
+
+/* 제목 스타일 */
 .title {
   margin: 42px 0 35px 0;
   display: flex;
@@ -48,31 +51,29 @@ margin-top: 4px;
   width: 1191px;
 }
 
- h1 {
+h1 {
   font-size: 40px;
   font-weight: bold;
- }
- 
+}
+
 .new-add-btn{
   width: 120px;
   height: 30px;
   border: none;
   border-radius: 10px;
-  color: white; 
+  color: white;
   cursor: pointer;
-  background-color: #113F8A; 
+  background-color: #113F8A;
   left: 1082px;
   top: 134px;
- }
- 
- 
+}
+
 .notice-search {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 1440px;
 }
-
 
 .search-bar {
   display: flex;
@@ -113,7 +114,7 @@ margin-top: 4px;
   border-radius: 20px;
   color: #fff;
   cursor: pointer;
-  background-color: #113F8A; 
+  background-color: #113F8A;
 }
 
 .search-btn, .reset-btn {
@@ -121,12 +122,13 @@ margin-top: 4px;
   height: 30px;
   border: solid 1px #888888;
   border-radius: 20px;
-  color: #131313; 
+  color: #131313;
   cursor: pointer;
   background-color: #fff;
 }
 
-.notice-list{
+/* 공지사항 리스트 테이블 스타일 */
+.notice-list {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -146,97 +148,50 @@ table tr {
   justify-content: space-between;
 }
 
-table tr > th {
-  width: 100%;
-  border-bottom: solid 0.1px #828282;
-  justify-content: center;
-  padding-bottom: 28px;
-}
-
-table tr > td {
+table tr > th, table tr > td {
   width: 100%;
   justify-content: center;
   padding: 20px 0;
 }
 
-table tr > th:nth-child(1){
-  width: 122px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-table tr > th:nth-child(2){
-  width: 488px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-table tr > th:nth-child(3){
-  width: 244px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-table tr > th:nth-child(4){
-  width: 244px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-table tr > th:nth-child(5){
-  width: 244px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-table tr > th:nth-child(6){
-  width: 98px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-
-table tr > td:nth-child(1){
+table tr > th:nth-child(1),
+table tr > td:nth-child(1) {
   width: 122px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
 }
 
-table tr > td:nth-child(2){
+table tr > th:nth-child(2),
+table tr > td:nth-child(2) {
   width: 488px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
 }
 
-table tr > td:nth-child(3){
+table tr > th:nth-child(3),
+table tr > td:nth-child(3),
+table tr > th:nth-child(4),
+table tr > td:nth-child(4),
+table tr > th:nth-child(5),
+table tr > td:nth-child(5) {
   width: 244px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
 }
-table tr > td:nth-child(4){
-  width: 244px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-table tr > td:nth-child(5){
-  width: 244px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-table tr > td:nth-child(6){
+
+table tr > th:nth-child(6),
+table tr > td:nth-child(6) {
   width: 98px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
 }
 
-
-.change-buttons{
+/* 버튼 스타일 */
+.change-buttons {
   display: flex;
   flex-direction: row;
   margin: 10px;
@@ -253,18 +208,18 @@ table tr > td:nth-child(6){
 }
 
 .edit-btn {
- background-color: #888888; 
- color: white;
+  background-color: #888888;
+  color: white;
 }
 
 .delete-btn {
- color: #131313;
- border: solid 1px #888888;
- background-color: #fff;
+  color: #131313;
+  border: solid 1px #888888;
+  background-color: #fff;
 }
 
-.cancel-btn{
-  background-color: #888888; /* 색상 코드 적용 */
+.cancel-btn {
+  background-color: #888888;
   color: white;
   border: none;
   border-radius: 10px;
@@ -272,6 +227,7 @@ table tr > td:nth-child(6){
   width: 49px;
   height: 30px;
 }
+
 .pop-up {
   display: none;
   justify-content: center;
@@ -295,3 +251,101 @@ table tr > td:nth-child(6){
   gap: 10px;
 }
 
+#menu-frame {
+  display: none; 
+  flex-direction: column;
+  width: 1440px;
+  align-items: start;
+  margin: 20px 0;
+  animation: lift-detail 0.1s;
+}
+
+#menu-frame.active {
+  display: flex;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  max-width: 220px;
+}
+
+.welcome {
+  font-size: 14px;
+  text-align: left;
+}
+
+.logout {
+  font-size: 10px;
+  color: #ffc303;
+  background-color: white;
+  border: none;
+  margin-left: auto;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menu-wrap {
+  position: relative;
+}
+
+ul {
+  text-align: start;
+  list-style: none;
+  padding: 19px;
+  position: absolute;
+  z-index: 1000;
+  top: 51px; 
+  left: 12px; 
+  width: 220px;
+}
+
+ul > li {
+  width: 200px;
+}
+
+ul > li > p {
+  width: 200px;
+  height: 40px;
+  background: #828282;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  padding-left: 15px;
+  margin: 16px 0;
+}
+
+ul > li > div {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  padding-left: 15px;
+}
+
+ul > li > div > p {
+  margin: 10px 0;
+  text-align: left;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+ul > li > div.open {
+  height: auto;
+  background-color: white;
+}
+
+.sub-menu {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.3s ease;
+  background-color: white;
+}
+
+.sub-menu.active {
+  height: auto;
+}

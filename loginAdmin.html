@@ -109,12 +109,10 @@
 
     
     <script>
-      // 로그인 버튼 클릭 시 호출되는 함수
-      function handleLogin() {
+      function loginAdnim() {
         const adminId = document.querySelector('input[name="id"]').value;
         const password = document.querySelector('input[name="password"]').value;
     
-        // 간단한 입력값 검증
         if (!adminId) {
           alert("아이디를 입력해주세요.");
           return;
@@ -124,35 +122,11 @@
           alert("비밀번호를 입력해주세요.");
           return;
         }
-    
-        // 로그인 로직 (예: API 호출)
-        console.log("로그인 시도:", { adminId, password });
-    
-        // 여기에 실제 로그인 API 호출 코드 작성 가능
-        // 예를 들어:
-        // fetch('/api/login', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify({ adminId, password }),
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        //   if (data.success) {
-        //     // 로그인 성공 시 리다이렉션
-        //     window.location.href = '/dashboard';
-        //   } else {
-        //     alert(data.message || '로그인 실패');
-        //   }
-        // })
-        // .catch(error => {
-        //   console.error('Error:', error);
-        // });
       }
     
-      // 로그인 버튼에 클릭 이벤트 리스너 추가
       document.addEventListener('DOMContentLoaded', function () {
         const loginButton = document.querySelector('button[type="button"]');
-        loginButton.addEventListener('click', handleLogin);
+        loginButton.addEventListener('click', loginAdnim);
       });
     </script>
 
