@@ -1,35 +1,53 @@
+/*
+*  html5resetcss
+*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Spoqa Han Sans Neo', sans-serif;
-  padding-bottom: 100px;
+  font-family: "Spoqa Han Sans Neo", sans-serif;
 }
 
-/* 이미지 스타일 */
 img {
   width: 40px;
   height: 40px;
 }
-
-/* 프레임 스타일 */
+.menu-icon{
+  cursor: pointer;
+}
 #frame {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: 0 auto;
+  margin-bottom: 100px;
 }
 
-#frame > .menu-wrap{
+#frame > .menu-wrap {
   display: flex;
   align-items: center;
   width: 1440px;
   margin: 28px 0;
   gap: 72px;
   padding-left: 28px;
+  position : relative;
 }
 
 #frame > .menu-wrap > span {
@@ -43,9 +61,8 @@ img {
   width: 1440px;
 }
 
-/* 제목 스타일 */
 .title {
-  margin: 42px 0 35px 0;
+  margin: 43px 0 80px 0;
   display: flex;
   justify-content: space-between;
   width: 1191px;
@@ -56,14 +73,14 @@ h1 {
   font-weight: bold;
 }
 
-.new-add-btn{
-  width: 120px;
+.new-add-btn {
+  width: 90px;
   height: 30px;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   color: white;
   cursor: pointer;
-  background-color: #113F8A;
+  background-color: #113f8a;
   left: 1082px;
   top: 134px;
 }
@@ -96,7 +113,7 @@ h1 {
 
 .buttons {
   display: flex;
-  margin: 35px 0 180px 0;
+  margin: 35px 0 80px 0;
   gap: 10px;
 }
 
@@ -107,27 +124,26 @@ h1 {
   border-radius: 4px;
 }
 
-.new-add-btn{
-  width: 90px;
-  height: 30px;
-  border: solid 1px #113F8A;
-  border-radius: 20px;
-  color: #fff;
-  cursor: pointer;
-  background-color: #113F8A;
-}
-
-.search-btn, .reset-btn {
+.search-btn {
   width: 90px;
   height: 30px;
   border: solid 1px #888888;
   border-radius: 20px;
-  color: #131313;
+  color: #888888;
   cursor: pointer;
   background-color: #fff;
 }
 
-/* 공지사항 리스트 테이블 스타일 */
+.reset-btn {
+  width: 90px;
+  height: 30px;
+  border: solid 1px #888888;
+  border-radius: 20px;
+  color: #888888;
+  cursor: pointer;
+  background-color: #fff;
+}
+
 .notice-list {
   display: flex;
   flex-direction: column;
@@ -138,9 +154,8 @@ h1 {
 }
 
 table {
-  width: 100%;
+  width: 1440px;
   text-align: center;
-  table-layout: fixed;
 }
 
 table tr {
@@ -148,13 +163,55 @@ table tr {
   justify-content: space-between;
 }
 
-table tr > th, table tr > td {
+table tr > th {
+  width: 100%;
+  border-bottom: solid 0.1px #828282;
+  justify-content: center;
+  padding-bottom: 28px;
+}
+table tr > td {
   width: 100%;
   justify-content: center;
   padding: 20px 0;
 }
 
-table tr > th:nth-child(1),
+table tr > th:nth-child(1) {
+  width: 122px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+table tr > th:nth-child(2) {
+  width: 488px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+table tr > th:nth-child(3) {
+  width: 244px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+table tr > th:nth-child(4) {
+  width: 244px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+table tr > th:nth-child(5) {
+  width: 244px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+table tr > th:nth-child(6) {
+  width: 98px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
 table tr > td:nth-child(1) {
   width: 122px;
   flex-shrink: 0;
@@ -162,7 +219,6 @@ table tr > td:nth-child(1) {
   align-items: center;
 }
 
-table tr > th:nth-child(2),
 table tr > td:nth-child(2) {
   width: 488px;
   flex-shrink: 0;
@@ -170,19 +226,24 @@ table tr > td:nth-child(2) {
   align-items: center;
 }
 
-table tr > th:nth-child(3),
-table tr > td:nth-child(3),
-table tr > th:nth-child(4),
-table tr > td:nth-child(4),
-table tr > th:nth-child(5),
+table tr > td:nth-child(3) {
+  width: 244px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+table tr > td:nth-child(4) {
+  width: 244px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
 table tr > td:nth-child(5) {
   width: 244px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
 }
-
-table tr > th:nth-child(6),
 table tr > td:nth-child(6) {
   width: 98px;
   flex-shrink: 0;
@@ -190,11 +251,18 @@ table tr > td:nth-child(6) {
   align-items: center;
 }
 
-/* 버튼 스타일 */
+table tbody tr td .image {
+  border: none;
+  width: 98px;
+  height: 98px;
+  border-radius: 20px;
+  background-color: #828282;
+  display: inline-flex;
+}
+
 .change-buttons {
   display: flex;
   flex-direction: row;
-  margin: 10px;
   gap: 7px;
 }
 
@@ -203,23 +271,23 @@ table tr > td:nth-child(6) {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  width: 45px;
-  height: 25px;
+  width: 49px;
+  height: 30px;
 }
 
 .edit-btn {
-  background-color: #888888;
+  background-color: #888888; 
   color: white;
 }
 
 .delete-btn {
+  border: solid 0.1px #131313; 
   color: #131313;
-  border: solid 1px #888888;
   background-color: #fff;
 }
 
-.cancel-btn {
-  background-color: #888888;
+.cancel-btn{
+  background-color: #888888; 
   color: white;
   border: none;
   border-radius: 10px;
@@ -228,47 +296,28 @@ table tr > td:nth-child(6) {
   height: 30px;
 }
 
-.pop-up {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border: solid 0.1px #888888;
-  border-radius: 20px;
-  width: 430px;
-  height: 150px;
-  gap: 50px;
-  position: fixed;
-  top: 50%;
-  left: 40%;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  animation: lift-popup 0.1s;
-}
-
 .check-buttons {
   display: flex;
   gap: 10px;
 }
 
 #menu-frame {
-  display: none; 
+  display: none;
   flex-direction: column;
   width: 1440px;
   align-items: start;
-  margin: 20px 0;
+  margin-top: 15px;
   animation: lift-detail 0.1s;
-}
+  position: absolute;
+  top: 100px;
+  left: 28px;   
+}ss
 
-#menu-frame.active {
-  display: flex;
-}
-
-.menu-header {
+.menu-header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0;
+  padding: 0; 
   margin: 0;
   max-width: 220px;
 }
@@ -286,21 +335,15 @@ table tr > td:nth-child(6) {
   margin-left: auto;
   font-weight: bold;
   cursor: pointer;
-}
-
-.menu-wrap {
-  position: relative;
+  margin-right: 18px;
 }
 
 ul {
-  text-align: start;
   list-style: none;
-  padding: 19px;
+  padding: 0;
+  width: 200px;
   position: absolute;
   z-index: 1000;
-  top: 51px; 
-  left: 12px; 
-  width: 220px;
 }
 
 ul > li {
@@ -314,7 +357,7 @@ ul > li > p {
   color: white;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-start; 
   cursor: pointer;
   padding-left: 15px;
   margin: 16px 0;
@@ -324,28 +367,12 @@ ul > li > div {
   height: 0;
   overflow: hidden;
   transition: height 0.3s ease;
-  padding-left: 15px;
+  padding-left: 15px; 
 }
 
 ul > li > div > p {
   margin: 10px 0;
   text-align: left;
-  padding-left: 10px;
+  padding-left: 10px; 
   cursor: pointer;
-}
-
-ul > li > div.open {
-  height: auto;
-  background-color: white;
-}
-
-.sub-menu {
-  overflow: hidden;
-  height: 0;
-  transition: height 0.3s ease;
-  background-color: white;
-}
-
-.sub-menu.active {
-  height: auto;
 }
